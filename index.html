@@ -405,14 +405,16 @@
       <div class="section-header">
         <div class="icon">👁️</div>
         <span class="section-title">Viewing & Editing</span>
-        <span class="count">11</span>
+        <span class="count">13</span>
       </div>
       <div class="commands">
         <div class="cmd-row"><span class="cmd">cat file</span><span class="desc">Print entire file to terminal. <em>cat file1 file2 &gt; file3</em> to merge</span></div>
         <div class="cmd-row"><span class="cmd">tac file</span><span class="desc">Print file in reverse (last line first)</span></div>
         <div class="cmd-row"><span class="cmd">less file</span><span class="desc">Scroll through file. Press <em>q</em> to quit, <em>/word</em> to search</span></div>
+        <div class="cmd-row"><span class="cmd">grep "term" file</span><span class="desc">Search for a term within a file (basic string search)</span></div>
         <div class="cmd-row"><span class="cmd">head -n 20 file</span><span class="desc">Show first 20 lines of a file</span></div>
         <div class="cmd-row"><span class="cmd">tail -n 20 file</span><span class="desc">Show last 20 lines. <em>tail -f</em> follows file in real-time</span></div>
+        <div class="cmd-row"><span class="cmd">gedit file</span><span class="desc">Graphical text editor (standard in GNOME desktop)</span></div>
         <div class="cmd-row"><span class="cmd">nano file</span><span class="desc">Simple user-friendly text editor in terminal</span></div>
         <div class="cmd-row"><span class="cmd">vim file</span><span class="desc">Advanced text editor (Pro). Press <em>i</em> insert, <em>:wq</em> save/quit</span></div>
         <div class="cmd-row"><span class="cmd">wc -l file</span><span class="desc">Count lines. <em>wc -w</em> counts words, <em>wc -c</em> counts bytes</span></div>
@@ -520,11 +522,12 @@
       <div class="section-header">
         <div class="icon">✂️</div>
         <span class="section-title">Text Search & Pro</span>
-        <span class="count">13</span>
+        <span class="count">14</span>
       </div>
       <div class="commands">
         <div class="cmd-row"><span class="cmd">grep "text" file</span><span class="desc">Search for text. <em>grep -r "text" .</em> recursive search</span></div>
         <div class="cmd-row"><span class="cmd">grep -i "pat" file</span><span class="desc">Case-insensitive search. <em>-v</em> inverts (non-matching)</span></div>
+        <div class="cmd-row"><span class="cmd">grep -E "a|b" file</span><span class="desc">Extended regex search (or use <em>egrep</em>). Find 'a' or 'b'</span></div>
         <div class="cmd-row"><span class="cmd">sed 's/a/b/g' file</span><span class="desc">Replace 'a' with 'b' globally. <em>-i</em> edits file in-place</span></div>
         <div class="cmd-row"><span class="cmd">awk '{print $1}' file</span><span class="desc">Print first column. <em>-F:</em> specifies <em>:</em> as delimiter (Pro)</span></div>
         <div class="cmd-row"><span class="cmd">sort file</span><span class="desc">Sort lines alphabetically. <em>sort -nr</em> reverse numerically</span></div>
@@ -678,5 +681,9 @@
     });
   });
 </script>
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
