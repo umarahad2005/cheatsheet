@@ -375,26 +375,28 @@
 
   <div class="grid" id="grid">
 
-    <!-- FILE & DIRECTORY -->
+    <!-- FILE & DIRECTORY (BASIC) -->
     <div class="section c1">
       <div class="section-header">
         <div class="icon">📁</div>
         <span class="section-title">Files & Directories</span>
-        <span class="count">12</span>
+        <span class="count">14</span>
       </div>
       <div class="commands">
         <div class="cmd-row"><span class="cmd">ls</span><span class="desc">List directory contents. Use <em>ls -la</em> for hidden files + details</span></div>
-        <div class="cmd-row"><span class="cmd">ls -la</span><span class="desc">Long listing with hidden files, permissions, size, owner</span></div>
-        <div class="cmd-row"><span class="cmd">cd /path</span><span class="desc">Change directory. <em>cd ~</em> goes home, <em>cd ..</em> goes up one level</span></div>
-        <div class="cmd-row"><span class="cmd">pwd</span><span class="desc">Print working directory — shows your current path</span></div>
+        <div class="cmd-row"><span class="cmd">ls -lhS</span><span class="desc">List files sorted by size (largest first), human-readable</span></div>
+        <div class="cmd-row"><span class="cmd">cd /path</span><span class="desc">Change directory. <em>cd ~</em> goes home, <em>cd -</em> previous dir</span></div>
+        <div class="cmd-row"><span class="cmd">pwd</span><span class="desc">Print working directory (current path)</span></div>
         <div class="cmd-row"><span class="cmd">mkdir dir</span><span class="desc">Create directory. Use <em>mkdir -p a/b/c</em> to create nested dirs</span></div>
         <div class="cmd-row"><span class="cmd">rmdir dir</span><span class="desc">Remove empty directory</span></div>
-        <div class="cmd-row"><span class="cmd">rm file</span><span class="desc">Delete file. <em>rm -rf dir</em> removes directories recursively (careful!)</span></div>
-        <div class="cmd-row"><span class="cmd">cp src dest</span><span class="desc">Copy file. <em>cp -r</em> to copy directories recursively</span></div>
+        <div class="cmd-row"><span class="cmd">rm file</span><span class="desc">Delete file. <em>rm -rf dir</em> removes directories recursively</span></div>
+        <div class="cmd-row"><span class="cmd">cp src dest</span><span class="desc">Copy file. <em>cp -r</em> copies directories, <em>cp -p</em> preserves attrs</span></div>
         <div class="cmd-row"><span class="cmd">mv src dest</span><span class="desc">Move or rename a file/directory</span></div>
         <div class="cmd-row"><span class="cmd">touch file</span><span class="desc">Create empty file or update timestamp of existing file</span></div>
-        <div class="cmd-row"><span class="cmd">find / -name x</span><span class="desc">Find files by name. <em>find . -type f -name "*.txt"</em> finds all txt files</span></div>
-        <div class="cmd-row"><span class="cmd">tree</span><span class="desc">Display directory structure as a tree (install if missing)</span></div>
+        <div class="cmd-row"><span class="cmd">find . -name "*.txt"</span><span class="desc">Find files by name in current directory and subdirectories</span></div>
+        <div class="cmd-row"><span class="cmd">find . -mtime -7</span><span class="desc">Find files modified in the last 7 days</span></div>
+        <div class="cmd-row"><span class="cmd">tree</span><span class="desc">Display directory structure as a tree</span></div>
+        <div class="cmd-row"><span class="cmd">stat file</span><span class="desc">Display precise file details, size, and timestamps</span></div>
       </div>
     </div>
 
@@ -402,18 +404,20 @@
     <div class="section c2">
       <div class="section-header">
         <div class="icon">👁️</div>
-        <span class="section-title">Viewing Files</span>
-        <span class="count">9</span>
+        <span class="section-title">Viewing & Editing</span>
+        <span class="count">11</span>
       </div>
       <div class="commands">
-        <div class="cmd-row"><span class="cmd">cat file</span><span class="desc">Print entire file to terminal. Good for small files</span></div>
+        <div class="cmd-row"><span class="cmd">cat file</span><span class="desc">Print entire file to terminal. <em>cat file1 file2 &gt; file3</em> to merge</span></div>
+        <div class="cmd-row"><span class="cmd">tac file</span><span class="desc">Print file in reverse (last line first)</span></div>
         <div class="cmd-row"><span class="cmd">less file</span><span class="desc">Scroll through file. Press <em>q</em> to quit, <em>/word</em> to search</span></div>
-        <div class="cmd-row"><span class="cmd">more file</span><span class="desc">Page through file (older, less features than less)</span></div>
         <div class="cmd-row"><span class="cmd">head -n 20 file</span><span class="desc">Show first 20 lines of a file</span></div>
         <div class="cmd-row"><span class="cmd">tail -n 20 file</span><span class="desc">Show last 20 lines. <em>tail -f</em> follows file in real-time</span></div>
+        <div class="cmd-row"><span class="cmd">nano file</span><span class="desc">Simple user-friendly text editor in terminal</span></div>
+        <div class="cmd-row"><span class="cmd">vim file</span><span class="desc">Advanced text editor (Pro). Press <em>i</em> insert, <em>:wq</em> save/quit</span></div>
         <div class="cmd-row"><span class="cmd">wc -l file</span><span class="desc">Count lines. <em>wc -w</em> counts words, <em>wc -c</em> counts bytes</span></div>
-        <div class="cmd-row"><span class="cmd">grep "text" file</span><span class="desc">Search for text. <em>grep -r "text" .</em> searches recursively</span></div>
         <div class="cmd-row"><span class="cmd">diff file1 file2</span><span class="desc">Show differences between two files line by line</span></div>
+        <div class="cmd-row"><span class="cmd">cmp file1 file2</span><span class="desc">Compare two files byte by byte</span></div>
         <div class="cmd-row"><span class="cmd">file filename</span><span class="desc">Detect file type (text, binary, image, etc.)</span></div>
       </div>
     </div>
@@ -422,18 +426,22 @@
     <div class="section c3">
       <div class="section-header">
         <div class="icon">🔒</div>
-        <span class="section-title">Permissions</span>
-        <span class="count">8</span>
+        <span class="section-title">Users & Permissions</span>
+        <span class="count">12</span>
       </div>
       <div class="commands">
         <div class="cmd-row"><span class="cmd">chmod 755 file</span><span class="desc">Set permissions: <em>7=rwx, 5=r-x, 4=r--</em>. Owner/group/others</span></div>
         <div class="cmd-row"><span class="cmd">chmod +x file</span><span class="desc">Add execute permission to file (make it runnable)</span></div>
-        <div class="cmd-row"><span class="cmd">chown user file</span><span class="desc">Change file owner. <em>chown user:group file</em> changes both</span></div>
-        <div class="cmd-row"><span class="cmd">chgrp group file</span><span class="desc">Change group ownership of a file</span></div>
-        <div class="cmd-row"><span class="cmd">umask 022</span><span class="desc">Set default permission mask for new files</span></div>
-        <div class="cmd-row"><span class="cmd">sudo command</span><span class="desc">Run command as superuser (root)</span></div>
-        <div class="cmd-row"><span class="cmd">su username</span><span class="desc">Switch to another user account</span></div>
+        <div class="cmd-row"><span class="cmd">chown user:group file</span><span class="desc">Change file owner and group ownership</span></div>
+        <div class="cmd-row"><span class="cmd">sudo cmd</span><span class="desc">Run command as superuser (root). <em>sudo -s</em> opens shell</span></div>
+        <div class="cmd-row"><span class="cmd">su username</span><span class="desc">Switch to another user account. <em>su -</em> to login as root</span></div>
         <div class="cmd-row"><span class="cmd">whoami</span><span class="desc">Display the current logged-in username</span></div>
+        <div class="cmd-row"><span class="cmd">id user</span><span class="desc">Print user and group IDs</span></div>
+        <div class="cmd-row"><span class="cmd">passwd</span><span class="desc">Change your password. <em>sudo passwd user</em> for another</span></div>
+        <div class="cmd-row"><span class="cmd">useradd user</span><span class="desc">Create a new user account</span></div>
+        <div class="cmd-row"><span class="cmd">usermod -aG group user</span><span class="desc">Add an existing user to a group</span></div>
+        <div class="cmd-row"><span class="cmd">who</span><span class="desc">Show who is logged on right now</span></div>
+        <div class="cmd-row"><span class="cmd">w</span><span class="desc">Show who is logged on and what they are doing</span></div>
       </div>
     </div>
 
@@ -441,19 +449,20 @@
     <div class="section c4">
       <div class="section-header">
         <div class="icon">⚙️</div>
-        <span class="section-title">Process Management</span>
-        <span class="count">10</span>
+        <span class="section-title">Process & Task Mgmt</span>
+        <span class="count">11</span>
       </div>
       <div class="commands">
-        <div class="cmd-row"><span class="cmd">ps aux</span><span class="desc">List all running processes with PID, CPU, memory usage</span></div>
+        <div class="cmd-row"><span class="cmd">ps aux</span><span class="desc">List all running processes. Use <em>ps -ef</em> for full format</span></div>
         <div class="cmd-row"><span class="cmd">top</span><span class="desc">Real-time process viewer. Press <em>q</em> to quit, <em>k</em> to kill</span></div>
-        <div class="cmd-row"><span class="cmd">htop</span><span class="desc">Interactive process viewer (nicer than top, may need install)</span></div>
-        <div class="cmd-row"><span class="cmd">kill PID</span><span class="desc">Kill process by PID. <em>kill -9 PID</em> force kills immediately</span></div>
-        <div class="cmd-row"><span class="cmd">killall name</span><span class="desc">Kill all processes with a given name</span></div>
+        <div class="cmd-row"><span class="cmd">htop</span><span class="desc">Interactive process viewer (requires install)</span></div>
+        <div class="cmd-row"><span class="cmd">kill PID</span><span class="desc">Kill process by PID. <em>kill -9 PID</em> force kills</span></div>
+        <div class="cmd-row"><span class="cmd">pkill name</span><span class="desc">Kill processes by pattern match</span></div>
+        <div class="cmd-row"><span class="cmd">killall name</span><span class="desc">Kill all processes with a given exact name</span></div>
         <div class="cmd-row"><span class="cmd">bg</span><span class="desc">Send paused process to background</span></div>
         <div class="cmd-row"><span class="cmd">fg</span><span class="desc">Bring background process to foreground</span></div>
         <div class="cmd-row"><span class="cmd">jobs</span><span class="desc">List background and paused jobs in current session</span></div>
-        <div class="cmd-row"><span class="cmd">nohup cmd &amp;</span><span class="desc">Run command in background, immune to hangups</span></div>
+        <div class="cmd-row"><span class="cmd">nohup cmd &amp;</span><span class="desc">Run command in background, immune to hangups (Pro)</span></div>
         <div class="cmd-row"><span class="cmd">nice -n 10 cmd</span><span class="desc">Run command with lower priority (10 = lower, -10 = higher)</span></div>
       </div>
     </div>
@@ -463,20 +472,23 @@
       <div class="section-header">
         <div class="icon">🌐</div>
         <span class="section-title">Networking</span>
-        <span class="count">11</span>
+        <span class="count">14</span>
       </div>
       <div class="commands">
-        <div class="cmd-row"><span class="cmd">ping host</span><span class="desc">Test connectivity to a host. <em>Ctrl+C</em> to stop</span></div>
-        <div class="cmd-row"><span class="cmd">ifconfig</span><span class="desc">Show network interface info (use <em>ip addr</em> on modern systems)</span></div>
+        <div class="cmd-row"><span class="cmd">ping host</span><span class="desc">Test connectivity safely to a host. <em>Ctrl+C</em> to stop</span></div>
         <div class="cmd-row"><span class="cmd">ip addr</span><span class="desc">Show all IP addresses and network interfaces</span></div>
-        <div class="cmd-row"><span class="cmd">netstat -tulpn</span><span class="desc">List open ports and listening services</span></div>
-        <div class="cmd-row"><span class="cmd">ss -tulpn</span><span class="desc">Modern replacement for netstat — shows socket stats</span></div>
+        <div class="cmd-row"><span class="cmd">ip link set eth0 down</span><span class="desc">Disable a network interface (Pro)</span></div>
+        <div class="cmd-row"><span class="cmd">netstat -tulpn</span><span class="desc">List open TCP/UDP ports and listening services</span></div>
+        <div class="cmd-row"><span class="cmd">ss -tulpn</span><span class="desc">Modern replacement for netstat showing active socket stats</span></div>
+        <div class="cmd-row"><span class="cmd">nc -vz host port</span><span class="desc">Netcat: Quick test if a port is open and listening</span></div>
         <div class="cmd-row"><span class="cmd">curl URL</span><span class="desc">Make HTTP requests. <em>curl -O URL</em> downloads a file</span></div>
-        <div class="cmd-row"><span class="cmd">wget URL</span><span class="desc">Download files from web. Supports recursive downloads</span></div>
-        <div class="cmd-row"><span class="cmd">ssh user@host</span><span class="desc">Connect to remote server via SSH</span></div>
-        <div class="cmd-row"><span class="cmd">scp src user@h:dest</span><span class="desc">Securely copy files to/from remote host</span></div>
-        <div class="cmd-row"><span class="cmd">traceroute host</span><span class="desc">Show network hops to reach a destination</span></div>
-        <div class="cmd-row"><span class="cmd">nslookup domain</span><span class="desc">Query DNS records for a domain name</span></div>
+        <div class="cmd-row"><span class="cmd">curl -I URL</span><span class="desc">Fetch only the HTTP headers of a URL</span></div>
+        <div class="cmd-row"><span class="cmd">wget -c URL</span><span class="desc">Download files securely, resume partial downloads</span></div>
+        <div class="cmd-row"><span class="cmd">ssh user@host</span><span class="desc">Connect to remote server via SSH. <em>-p port</em> custom port</span></div>
+        <div class="cmd-row"><span class="cmd">scp src user@h:dest</span><span class="desc">Securely copy files over SSH to/from remote</span></div>
+        <div class="cmd-row"><span class="cmd">rsync -avz src dest</span><span class="desc">Fast incremental file sync locally or remotely (Pro)</span></div>
+        <div class="cmd-row"><span class="cmd">traceroute host</span><span class="desc">Show network routing path hops to reach a destination</span></div>
+        <div class="cmd-row"><span class="cmd">dig domain</span><span class="desc">Advanced DNS lookup tool (Pro). (Alternative: <em>nslookup</em>)</span></div>
       </div>
     </div>
 
@@ -484,20 +496,22 @@
     <div class="section c6">
       <div class="section-header">
         <div class="icon">💾</div>
-        <span class="section-title">Disk & System Info</span>
-        <span class="count">10</span>
+        <span class="section-title">Disk & Filesystem</span>
+        <span class="count">12</span>
       </div>
       <div class="commands">
-        <div class="cmd-row"><span class="cmd">df -h</span><span class="desc">Show disk space usage in human-readable format</span></div>
-        <div class="cmd-row"><span class="cmd">du -sh dir</span><span class="desc">Show total size of a directory. <em>du -sh *</em> sizes of all items</span></div>
+        <div class="cmd-row"><span class="cmd">df -h</span><span class="desc">Show disk space usage on mounted filesystems</span></div>
+        <div class="cmd-row"><span class="cmd">du -sh dir</span><span class="desc">Show total size of a directory. <em>du -sh *</em> sizes of all</span></div>
+        <div class="cmd-row"><span class="cmd">mount /dev/sda1 /mnt</span><span class="desc">Mount a partition to a directory path</span></div>
+        <div class="cmd-row"><span class="cmd">umount /mnt</span><span class="desc">Unmount a filesystem cleanly</span></div>
+        <div class="cmd-row"><span class="cmd">lsblk</span><span class="desc">List all block devices (disks and partitions visually)</span></div>
+        <div class="cmd-row"><span class="cmd">fdisk -l</span><span class="desc">List disk partition tables (requires sudo)</span></div>
+        <div class="cmd-row"><span class="cmd">mkfs.ext4 /dev/sdb1</span><span class="desc">Format a partition as ext4 filesystem (Pro/Danger!)</span></div>
+        <div class="cmd-row"><span class="cmd">blkid</span><span class="desc">Show UUIDs and file system types of block devices</span></div>
         <div class="cmd-row"><span class="cmd">free -h</span><span class="desc">Show RAM and swap usage in human-readable format</span></div>
-        <div class="cmd-row"><span class="cmd">uname -a</span><span class="desc">Show system info: kernel, hostname, architecture</span></div>
-        <div class="cmd-row"><span class="cmd">uptime</span><span class="desc">Show how long system has been running and load avg</span></div>
-        <div class="cmd-row"><span class="cmd">lscpu</span><span class="desc">Display CPU architecture and core information</span></div>
-        <div class="cmd-row"><span class="cmd">lsblk</span><span class="desc">List block devices (disks and partitions)</span></div>
-        <div class="cmd-row"><span class="cmd">mount /dev/x /mnt</span><span class="desc">Mount a device to a directory</span></div>
-        <div class="cmd-row"><span class="cmd">umount /mnt</span><span class="desc">Unmount a mounted device or filesystem</span></div>
-        <div class="cmd-row"><span class="cmd">dmesg | tail</span><span class="desc">View kernel log messages (hardware events, errors)</span></div>
+        <div class="cmd-row"><span class="cmd">lsof</span><span class="desc">List open files and the processes that opened them (Pro)</span></div>
+        <div class="cmd-row"><span class="cmd">lsof -i :80</span><span class="desc">Find which process is listening on port 80</span></div>
+        <div class="cmd-row"><span class="cmd">ncdu</span><span class="desc">Interactive ncurses disk usage viewer (requires install)</span></div>
       </div>
     </div>
 
@@ -505,42 +519,83 @@
     <div class="section c7">
       <div class="section-header">
         <div class="icon">✂️</div>
-        <span class="section-title">Text Processing</span>
-        <span class="count">10</span>
+        <span class="section-title">Text Search & Pro</span>
+        <span class="count">13</span>
       </div>
       <div class="commands">
-        <div class="cmd-row"><span class="cmd">grep -i "pat" f</span><span class="desc">Case-insensitive search. <em>-v</em> inverts (shows non-matching)</span></div>
-        <div class="cmd-row"><span class="cmd">sed 's/a/b/g' f</span><span class="desc">Replace 'a' with 'b' globally in file. <em>-i</em> edits in place</span></div>
-        <div class="cmd-row"><span class="cmd">awk '{print $1}' f</span><span class="desc">Print first column. <em>awk -F: '{print $1}'</em> uses : as delimiter</span></div>
-        <div class="cmd-row"><span class="cmd">sort file</span><span class="desc">Sort lines alphabetically. <em>sort -n</em> sorts numerically</span></div>
-        <div class="cmd-row"><span class="cmd">uniq file</span><span class="desc">Remove duplicate adjacent lines. Use after <em>sort</em></span></div>
-        <div class="cmd-row"><span class="cmd">cut -d: -f1 f</span><span class="desc">Cut field 1 from each line using : as delimiter</span></div>
-        <div class="cmd-row"><span class="cmd">tr 'a-z' 'A-Z'</span><span class="desc">Translate characters — converts lowercase to uppercase</span></div>
-        <div class="cmd-row"><span class="cmd">echo "text"</span><span class="desc">Print text to terminal. Use with <em>&gt;</em> to write to file</span></div>
-        <div class="cmd-row"><span class="cmd">tee file</span><span class="desc">Read stdin and write to both file and stdout simultaneously</span></div>
-        <div class="cmd-row"><span class="cmd">xargs</span><span class="desc">Build commands from stdin. <em>find . -name x | xargs rm</em></span></div>
+        <div class="cmd-row"><span class="cmd">grep "text" file</span><span class="desc">Search for text. <em>grep -r "text" .</em> recursive search</span></div>
+        <div class="cmd-row"><span class="cmd">grep -i "pat" file</span><span class="desc">Case-insensitive search. <em>-v</em> inverts (non-matching)</span></div>
+        <div class="cmd-row"><span class="cmd">sed 's/a/b/g' file</span><span class="desc">Replace 'a' with 'b' globally. <em>-i</em> edits file in-place</span></div>
+        <div class="cmd-row"><span class="cmd">awk '{print $1}' file</span><span class="desc">Print first column. <em>-F:</em> specifies <em>:</em> as delimiter (Pro)</span></div>
+        <div class="cmd-row"><span class="cmd">sort file</span><span class="desc">Sort lines alphabetically. <em>sort -nr</em> reverse numerically</span></div>
+        <div class="cmd-row"><span class="cmd">uniq file</span><span class="desc">Remove duplicate adjacent lines (combine with <em>sort</em>)</span></div>
+        <div class="cmd-row"><span class="cmd">uniq -c file</span><span class="desc">Count occurrences of unique lines</span></div>
+        <div class="cmd-row"><span class="cmd">cut -d: -f1 file</span><span class="desc">Cut out column 1 using <em>:</em> as the delimiter</span></div>
+        <div class="cmd-row"><span class="cmd">tr 'a-z' 'A-Z'</span><span class="desc">Translate characters (e.g., lowercase to uppercase)</span></div>
+        <div class="cmd-row"><span class="cmd">tee file</span><span class="desc">Read stdin and write to stdout AND a file simultaneously</span></div>
+        <div class="cmd-row"><span class="cmd">xargs cmd</span><span class="desc">Take lines from stdin and run cmd on them (Pro)</span></div>
+        <div class="cmd-row"><span class="cmd">jq '.' file.json</span><span class="desc">Command-line JSON processor (prettify or extract data)</span></div>
+        <div class="cmd-row"><span class="cmd">watch -n 1 "cmd"</span><span class="desc">Run a command repeatedly every 1 sec and display output</span></div>
       </div>
     </div>
 
-    <!-- PACKAGES & SHELL -->
+    <!-- PACKAGES & SYSTEM ADMIN -->
     <div class="section c8">
       <div class="section-header">
         <div class="icon">📦</div>
-        <span class="section-title">Package & Shell</span>
-        <span class="count">11</span>
+        <span class="section-title">System Admin (Pro)</span>
+        <span class="count">13</span>
       </div>
       <div class="commands">
-        <div class="cmd-row"><span class="cmd">apt install pkg</span><span class="desc">Install package (Debian/Ubuntu). Use <em>sudo apt install</em></span></div>
-        <div class="cmd-row"><span class="cmd">apt update</span><span class="desc">Refresh package lists from repositories</span></div>
-        <div class="cmd-row"><span class="cmd">apt upgrade</span><span class="desc">Upgrade all installed packages to latest versions</span></div>
-        <div class="cmd-row"><span class="cmd">apt remove pkg</span><span class="desc">Uninstall a package. <em>apt purge</em> also removes config files</span></div>
-        <div class="cmd-row"><span class="cmd">yum install pkg</span><span class="desc">Install package on RHEL/CentOS/Fedora systems</span></div>
-        <div class="cmd-row"><span class="cmd">history</span><span class="desc">Show command history. <em>!n</em> runs command #n again</span></div>
-        <div class="cmd-row"><span class="cmd">alias ll='ls -la'</span><span class="desc">Create a shortcut for a command</span></div>
-        <div class="cmd-row"><span class="cmd">export VAR=val</span><span class="desc">Set environment variable for current session</span></div>
-        <div class="cmd-row"><span class="cmd">source ~/.bashrc</span><span class="desc">Reload shell config without restarting terminal</span></div>
-        <div class="cmd-row"><span class="cmd">which cmd</span><span class="desc">Show full path of a command executable</span></div>
-        <div class="cmd-row"><span class="cmd">man command</span><span class="desc">Open manual page for any command. Press <em>q</em> to quit</span></div>
+        <div class="cmd-row"><span class="cmd">apt install pkg</span><span class="desc">Install package (Debian/Ubuntu). Use <em>sudo apt</em></span></div>
+        <div class="cmd-row"><span class="cmd">yum install pkg</span><span class="desc">Install package on RHEL/CentOS systems</span></div>
+        <div class="cmd-row"><span class="cmd">systemctl start svc</span><span class="desc">Start a systemd service (e.g., <em>nginx</em> or <em>docker</em>)</span></div>
+        <div class="cmd-row"><span class="cmd">systemctl stop svc</span><span class="desc">Stop a running service</span></div>
+        <div class="cmd-row"><span class="cmd">systemctl enable svc</span><span class="desc">Enable service to automatically start on system boot</span></div>
+        <div class="cmd-row"><span class="cmd">systemctl status svc</span><span class="desc">Check if a service is running and view recent logs</span></div>
+        <div class="cmd-row"><span class="cmd">journalctl -u svc</span><span class="desc">View full logs for a specific systemd service</span></div>
+        <div class="cmd-row"><span class="cmd">journalctl -xf</span><span class="desc">Follow system logs in real-time (Pro)</span></div>
+        <div class="cmd-row"><span class="cmd">crontab -e</span><span class="desc">Edit scheduling logic for cron jobs (automated tasks)</span></div>
+        <div class="cmd-row"><span class="cmd">uptime</span><span class="desc">Show how long the system has been continuously running</span></div>
+        <div class="cmd-row"><span class="cmd">uname -a</span><span class="desc">Show system kernel, hostname, architecture data</span></div>
+        <div class="cmd-row"><span class="cmd">dmesg | tail</span><span class="desc">View latest kernel ring buffer logs (hardware events)</span></div>
+        <div class="cmd-row"><span class="cmd">env</span><span class="desc">Print environment variables for current session</span></div>
+      </div>
+    </div>
+
+    <!-- FIREWALL & SECURITY -->
+    <div class="section c1">
+      <div class="section-header">
+        <div class="icon">🛡️</div>
+        <span class="section-title">Security & Firewall</span>
+        <span class="count">8</span>
+      </div>
+      <div class="commands">
+        <div class="cmd-row"><span class="cmd">ufw status</span><span class="desc">Check status of Uncomplicated Firewall (Ubuntu)</span></div>
+        <div class="cmd-row"><span class="cmd">ufw allow 22/tcp</span><span class="desc">Allow incoming traffic on port 22 for SSH</span></div>
+        <div class="cmd-row"><span class="cmd">ufw enable</span><span class="desc">Turn on the UFW firewall</span></div>
+        <div class="cmd-row"><span class="cmd">iptables -L</span><span class="desc">List core Linux firewall rules (Pro)</span></div>
+        <div class="cmd-row"><span class="cmd">fail2ban-client status</span><span class="desc">Check status of brute-force prevention tool</span></div>
+        <div class="cmd-row"><span class="cmd">ssh-keygen -t rsa</span><span class="desc">Generate a new SSH keypair for passwordless login</span></div>
+        <div class="cmd-row"><span class="cmd">ssh-copy-id user@host</span><span class="desc">Install public key onto a remote server to login securely</span></div>
+        <div class="cmd-row"><span class="cmd">last</span><span class="desc">Display list of recent user logins on the machine</span></div>
+      </div>
+    </div>
+
+    <!-- ARCHIVING & COMPRESSION -->
+    <div class="section c2">
+      <div class="section-header">
+        <div class="icon">🗜️</div>
+        <span class="section-title">Archiving (Zip/Tar)</span>
+        <span class="count">6</span>
+      </div>
+      <div class="commands">
+        <div class="cmd-row"><span class="cmd">tar -cvf a.tar dir</span><span class="desc">Create an uncompressed tar archive from directory</span></div>
+        <div class="cmd-row"><span class="cmd">tar -czvf a.tar.gz dir</span><span class="desc">Create a gzip-compressed archive (Very common)</span></div>
+        <div class="cmd-row"><span class="cmd">tar -xzvf a.tar.gz</span><span class="desc">Extract contents of a gzip tarball</span></div>
+        <div class="cmd-row"><span class="cmd">zip -r arch.zip dir</span><span class="desc">Zip a directory recursively</span></div>
+        <div class="cmd-row"><span class="cmd">unzip arch.zip</span><span class="desc">Extract a zip file to the current directory</span></div>
+        <div class="cmd-row"><span class="cmd">gzip file</span><span class="desc">Compress a file and replace it with a .gz file</span></div>
       </div>
     </div>
 
@@ -550,32 +605,40 @@
   <div class="tips-section">
     <div class="tips-header">
       <span>⚡</span>
-      <span class="t">Power User Tips</span>
+      <span class="t">Power User Terminal Mastery</span>
     </div>
     <div class="tips-grid">
       <div class="tip">
-        <div class="tip-label">Pipes</div>
-        <div class="tip-text">Chain commands with <code>|</code>: <code>ps aux | grep nginx | awk '{print $2}'</code> — output of one becomes input of next.</div>
+        <div class="tip-label">Pipes (|)</div>
+        <div class="tip-text">Chain commands: <code>ps aux | grep nginx | awk '{print $2}'</code> passes output of the first as input to the next command.</div>
       </div>
       <div class="tip">
-        <div class="tip-label">Redirection</div>
-        <div class="tip-text">Use <code>&gt;</code> to write to file, <code>&gt;&gt;</code> to append, <code>2&gt;</code> for errors, <code>&amp;&gt;</code> for both stdout+stderr.</div>
+        <div class="tip-label">Redirection (&gt;, &gt;&gt;)</div>
+        <div class="tip-text">Use <code>&gt;</code> to overwrite a file, <code>&gt;&gt;</code> to append. <code>2&gt;</code> redirects errors, <code>&amp;&gt;</code> redirects both stdout and stderr.</div>
       </div>
       <div class="tip">
         <div class="tip-label">Ctrl Shortcuts</div>
-        <div class="tip-text"><code>Ctrl+C</code> kills, <code>Ctrl+Z</code> pauses, <code>Ctrl+D</code> logs out, <code>Ctrl+L</code> clears screen, <code>Ctrl+R</code> searches history.</div>
+        <div class="tip-text"><code>Ctrl+C</code> kills, <code>Ctrl+Z</code> pauses, <code>Ctrl+D</code> logs out, <code>Ctrl+L</code> clears screen, <code>Ctrl+R</code> reverse searches your command history!</div>
       </div>
       <div class="tip">
-        <div class="tip-label">Wildcards</div>
-        <div class="tip-text"><code>*</code> matches anything, <code>?</code> matches one char. Example: <code>rm *.log</code> deletes all .log files.</div>
+        <div class="tip-label">Wildcards (*, ?)</div>
+        <div class="tip-text"><code>*</code> matches any string of characters, <code>?</code> matches a single char. Example: <code>rm *.log</code> deletes all log files instantly.</div>
       </div>
       <div class="tip">
-        <div class="tip-label">Background Jobs</div>
-        <div class="tip-text">Append <code>&amp;</code> to run in background: <code>./script.sh &amp;</code>. Use <code>jobs</code> and <code>fg %1</code> to manage them.</div>
+        <div class="tip-label">Background Jobs (&amp;)</div>
+        <div class="tip-text">Append <code>&amp;</code> to run in the background: <code>./script.sh &amp;</code>. Manage them smoothly with <code>jobs</code>, <code>fg %1</code>, or <code>bg</code>.</div>
       </div>
       <div class="tip">
-        <div class="tip-label">Tab Completion</div>
-        <div class="tip-text">Press <code>Tab</code> to auto-complete commands and paths. Double-tap <code>Tab</code> to see all options when ambiguous.</div>
+        <div class="tip-label">Tab & History Mastery</div>
+        <div class="tip-text">Press <code>Tab</code> to auto-complete commands. Type <code>!540</code> to run command #540 from <code>history</code>, or <code>!!</code> to run the last command with <code>sudo !!</code></div>
+      </div>
+      <div class="tip">
+        <div class="tip-label">Variables & Aliases</div>
+        <div class="tip-text"><code>alias ll='ls -alF'</code> creates a shortcut. Set variables: <code>export VAR="hello"</code>. Save these in <code>~/.bashrc</code> or <code>~/.zshrc</code> to make them permanent.</div>
+      </div>
+      <div class="tip">
+        <div class="tip-label">Brace Expansion</div>
+        <div class="tip-text">Create files quickly: <code>touch file_{1..5}.txt</code> makes file_1 to 5. <code>mkdir -p src/{components,utils}</code> scaffolds a project structure instantly.</div>
       </div>
     </div>
   </div>
